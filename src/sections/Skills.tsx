@@ -12,11 +12,11 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express.js", "Python", "Java", "REST API"],
+    skills: ["Node.js", "Express.js", "Java", "REST API"],
   },
   {
     title: "Database",
-    skills: ["MongoDB", "SQL"],
+    skills: ["MongoDB", "MYSQL"],
   },
   {
     title: "AI / ML",
@@ -28,7 +28,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: "Concepts",
-    skills: ["Agile", "API Integration", "OOP", "Problem Solving"],
+    skills: ["Core Java", "API Integration", "OOP", "Problem Solving"],
   },
 ];
 
@@ -60,7 +60,7 @@ export default function Skills() {
 
             <div className="skill-tags">
               {group.skills.map((skill: string) => (
-                <span key={skill}>{skill}</span>
+                <span key={skill}>  {skill}  </span>
               ))}
             </div>
           </motion.div>

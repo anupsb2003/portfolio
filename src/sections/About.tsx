@@ -44,7 +44,7 @@ export default function About() {
 
             <p>
               <Briefcase size={18} />
-              React Native Intern
+              React Native Developer 
             </p>
           </div>
         </motion.div>

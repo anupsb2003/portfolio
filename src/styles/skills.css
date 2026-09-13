@@ -50,3 +50,9 @@
   background: rgba(155, 92, 255, 0.25);
   transform: translateY(-3px);
 }
+.skill-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  list-style: none;
+}
