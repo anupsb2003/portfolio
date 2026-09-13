@@ -1,0 +1,125 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  height: 78px;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  background: rgba(3, 5, 16, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan),
+    var(--purple),
+    var(--pink),
+    transparent
+  );
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.logo-symbol {
+  color: var(--cyan);
+  text-shadow: 0 0 18px var(--cyan);
+}
+
+.logo-name {
+  color: white;
+}
+
+.logo-dot {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 8px 0;
+  color: #c9d0ed;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links .nav-hire-button {
+  padding: 10px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 7px;
+  color: var(--cyan);
+  background: rgba(0, 245, 255, 0.07);
+}
+
+.nav-links .nav-hire-button::after {
+  display: none;
+}
+
+.nav-links .nav-hire-button:hover {
+  color: #030510;
+  background: var(--cyan);
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+}
+
+.menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(0, 245, 255, 0.35);
+  border-radius: 8px;
+  color: var(--cyan);
+  background: rgba(0, 245, 255, 0.06);
+}

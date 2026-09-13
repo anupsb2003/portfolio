@@ -1,0 +1,546 @@
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  padding: 10px 0 150px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(0, 245, 255, 0.045),
+      transparent 45%,
+      rgba(155, 92, 255, 0.045)
+    ),
+    var(--background);
+}
+
+/* =========================================
+   HERO CONTAINER
+========================================= */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, 92%);
+  min-height: 520px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+/* =========================================
+   HERO TEXT
+========================================= */
+
+.hero-text {
+  max-width: 680px;
+  min-width: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 0 0 24px;
+
+  color: var(--cyan);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.eyebrow svg {
+  flex-shrink: 0;
+  color: var(--cyan);
+}
+
+/* Main name */
+
+.hero-text h1 {
+  margin: 0;
+
+  color: var(--text-primary);
+  font-size: clamp(3.2rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.hero-text h1 span {
+  color: var(--cyan);
+  text-shadow: 0 0 25px rgba(0, 245, 255, 0.3);
+}
+
+/* Job title */
+
+.hero-text h2 {
+  margin: 24px 0 22px;
+
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.hero-text h2 span {
+  color: var(--purple);
+  text-shadow: 0 0 25px rgba(155, 92, 255, 0.3);
+}
+
+/* Description */
+
+.hero-description {
+  max-width: 650px;
+  margin: 0 0 32px;
+
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 0 28px;
+
+  border-radius: 10px;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.primary-button {
+  color: #02040e;
+  background: var(--cyan);
+  border: 1px solid var(--cyan);
+
+  box-shadow:
+    0 0 20px rgba(0, 245, 255, 0.18),
+    inset 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.primary-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 0 30px rgba(0, 245, 255, 0.4),
+    0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.secondary-button {
+  color: var(--text-primary);
+  background: rgba(155, 92, 255, 0.04);
+  border: 1px solid var(--purple);
+}
+
+.secondary-button:hover {
+  color: var(--purple);
+  background: rgba(155, 92, 255, 0.12);
+  transform: translateY(-4px);
+
+  box-shadow: 0 0 25px rgba(155, 92, 255, 0.2);
+}
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--cyan);
+  transform: translateY(-4px);
+}
+
+.social-links svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* =========================================
+   HERO 3D VISUAL
+========================================= */
+
+.hero-visual {
+  position: relative;
+
+  min-width: 0;
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual canvas {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 620px;
+  max-height: 520px;
+}
+
+/* =========================================
+   FLOATING TECHNOLOGY LABELS
+========================================= */
+
+.visual-label {
+  position: absolute;
+  z-index: 4;
+
+  padding: 11px 20px;
+
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 9px;
+
+  background: rgba(7, 12, 35, 0.82);
+  backdrop-filter: blur(14px);
+
+  color: var(--cyan);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+
+  box-shadow:
+    0 0 18px rgba(0, 245, 255, 0.08),
+    inset 0 0 15px rgba(0, 245, 255, 0.03);
+
+  animation: floatingLabel 4s ease-in-out infinite;
+}
+
+.label-one {
+  top: 13%;
+  left: 3%;
+
+  color: var(--cyan);
+  border-color: rgba(0, 245, 255, 0.45);
+
+  animation-delay: 0s;
+}
+
+.label-two {
+  top: 34%;
+  right: 0;
+
+  color: var(--purple);
+  border-color: rgba(155, 92, 255, 0.5);
+
+  animation-delay: 1s;
+}
+
+.label-three {
+  bottom: 12%;
+  left: 15%;
+
+  color: var(--pink);
+  border-color: rgba(255, 0, 153, 0.5);
+
+  animation-delay: 2s;
+}
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator {
+  position: absolute;
+  z-index: 5;
+  bottom: 28px;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transform: translateX(-50%);
+
+  transition: color 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  color: var(--cyan);
+}
+
+.scroll-indicator svg {
+  color: var(--cyan);
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes floatingLabel {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+  .hero-container {
+    gap: 35px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .hero-text h2 {
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 130px 0 120px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero-buttons,
+  .social-links {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 400px;
+    width: 100%;
+  }
+
+  .hero-visual canvas {
+    max-width: 560px;
+  }
+
+  .label-one {
+    left: 12%;
+  }
+
+  .label-two {
+    right: 10%;
+  }
+
+  .label-three {
+    left: 20%;
+  }
+
+  .scroll-indicator {
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 110px 0 105px;
+  }
+
+  .hero-container {
+    width: min(92%, 500px);
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    letter-spacing: -1px;
+  }
+
+  .hero-text h2 {
+    margin: 18px 0;
+    font-size: clamp(1.35rem, 7vw, 2rem);
+    letter-spacing: 0;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 48px;
+    padding: 0 20px;
+    font-size: 0.85rem;
+  }
+
+  .social-links {
+    gap: 18px;
+  }
+
+  .hero-visual {
+    min-height: 310px;
+  }
+
+  .hero-visual canvas {
+    max-width: 100%;
+    max-height: 350px;
+  }
+
+  .visual-label {
+    padding: 8px 13px;
+    font-size: 0.7rem;
+  }
+
+  .label-one {
+    top: 8%;
+    left: 2%;
+  }
+
+  .label-two {
+    top: 34%;
+    right: 0;
+  }
+
+  .label-three {
+    bottom: 8%;
+    left: 8%;
+  }
+
+  .scroll-indicator {
+    bottom: 16px;
+    font-size: 0.72rem;
+  }
+
+  .scroll-indicator svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-label,
+  .scroll-indicator svg {
+    animation: none;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .social-links a,
+  .scroll-indicator {
+    transition: none;
+  }
+}
