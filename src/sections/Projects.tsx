@@ -5,7 +5,7 @@ import {
 import ecommerce from "../assets/Project/ecommerce.png";
 import cropPrediction from "../assets/Project/crop-prediction.png";
 import aiImageGeneration from "../assets/Project/AiImageGeneration.png";
-import medicalChatbot from "../assets/Project/medicalChatbot.png";
+import medicalChatbot from "../assets/Project/MedicalChatbot.png";
 import expoEcommerceImage from "../assets/Project/expo-ecommerce.png";
 import foodBlog from "../assets/Project/food-blog.png";
 import { FaGithub } from "react-icons/fa";
