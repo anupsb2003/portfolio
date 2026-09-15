@@ -1,5 +1,5 @@
 import { Download, FileText } from "lucide-react";
-
+import resume from "../assets/Anup_SB_Resume_SDE.pdf";
 export default function Resume() {
   return (
     <section id="resume" className="section section-dark">
@@ -25,7 +25,7 @@ export default function Resume() {
 
           <div className="resume-actions">
             <a
-              href="/Anup_SB_Resume_SDE.pdf"
+              href={resume}
               target="_blank"
               rel="noreferrer"
               className="primary-button"
@@ -34,7 +34,7 @@ export default function Resume() {
             </a>
 
             <a
-              href="/Anup_SB_Resume_SDE.pdf"
+              href={resume}
               download
               className="secondary-button"
             >

@@ -1,40 +1,503 @@
-.resume-box {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 55px 35px;
-  text-align: center;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0, 245, 255, 0.08),
-      rgba(155, 92, 255, 0.1)
-    ),
-    var(--background-card);
+/* =========================================
+   RESUME SECTION
+========================================= */
+
+#resume {
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
 }
 
-.resume-icon {
+/* Background glow */
+
+#resume::before {
+  content: "";
+
+  position: absolute;
+  top: 20%;
+  left: -180px;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+  background: rgba(0, 245, 255, 0.06);
+  filter: blur(110px);
+
+  pointer-events: none;
+}
+
+#resume::after {
+  content: "";
+
+  position: absolute;
+  right: -180px;
+  bottom: 5%;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+  background: rgba(155, 92, 255, 0.07);
+  filter: blur(110px);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   RESUME CARD
+========================================= */
+
+.resume-card {
+  position: relative;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 85px;
-  height: 85px;
-  margin: 0 auto 25px;
-  border: 1px solid var(--cyan);
-  border-radius: 20px;
+  gap: 45px;
+
+  max-width: 950px;
+  min-height: 300px;
+
+  margin: 0 auto;
+  padding: 55px 45px;
+
+  border: 1px solid rgba(0, 245, 255, 0.18);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 245, 255, 0.06),
+      rgba(155, 92, 255, 0.07)
+    ),
+    var(--background-card, rgba(12, 18, 40, 0.8));
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    inset 0 0 30px rgba(0, 245, 255, 0.025),
+    0 20px 60px rgba(0, 0, 0, 0.25);
+
+  transform-style: preserve-3d;
+
+  animation: resumeCardFloat 7s ease-in-out infinite;
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Moving border line */
+
+.resume-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 24px;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(0, 245, 255, 0.7),
+    transparent 45%,
+    rgba(155, 92, 255, 0.7),
+    transparent 75%
+  );
+
+  background-size: 250% 250%;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  animation: resumeBorderMove 8s linear infinite;
+
+  pointer-events: none;
+}
+
+/* Decorative shine */
+
+.resume-card::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 45%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.04),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: left 0.8s ease;
+
+  pointer-events: none;
+}
+
+.resume-card:hover::after {
+  left: 130%;
+}
+
+.resume-card:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+
+  border-color: rgba(0, 245, 255, 0.45);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(0, 245, 255, 0.08);
+}
+
+/* =========================================
+   RESUME ICON
+========================================= */
+
+.resume-icon {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 125px;
+  height: 145px;
+
+  border: 1px solid rgba(0, 245, 255, 0.5);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0, 245, 255, 0.13),
+      rgba(155, 92, 255, 0.1)
+    ),
+    rgba(8, 14, 32, 0.8);
+
   color: var(--cyan);
-  background: rgba(0, 245, 255, 0.08);
-  animation: pulseGlow 4s infinite;
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 245, 255, 0.08),
+    0 0 25px rgba(0, 245, 255, 0.06);
+
+  transform-style: preserve-3d;
+
+  animation: resumeIconFloat 5s ease-in-out infinite;
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
 }
 
-.resume-box h3 {
-  margin-bottom: 15px;
+/* Icon document fold */
+
+.resume-icon::before {
+  content: "";
+
+  position: absolute;
+  top: 17px;
+  right: 17px;
+
+  width: 25px;
+  height: 25px;
+
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+
+  opacity: 0.7;
+}
+
+.resume-icon::after {
+  content: "";
+
+  position: absolute;
+  bottom: 20px;
+  left: 22px;
+  right: 22px;
+
+  height: 2px;
+
+  background: var(--cyan);
+  box-shadow:
+    0 -10px 0 rgba(0, 245, 255, 0.35),
+    0 -20px 0 rgba(0, 245, 255, 0.2);
+
+  opacity: 0.6;
+}
+
+.resume-card:hover .resume-icon {
+  transform: translateZ(35px) rotateY(12deg) rotateX(-5deg);
+
+  border-color: var(--cyan);
+  color: var(--cyan);
+
+  box-shadow:
+    0 0 35px rgba(0, 245, 255, 0.15),
+    inset 0 0 30px rgba(0, 245, 255, 0.1);
+}
+
+.resume-icon svg {
+  position: relative;
+  z-index: 2;
+
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.4));
+}
+
+/* =========================================
+   RESUME CONTENT
+========================================= */
+
+.resume-card > div:last-child {
+  position: relative;
+  z-index: 2;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.resume-card h3 {
+  margin: 0 0 15px;
+
+  color: var(--text-primary);
+
   font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1.4;
+
+  transition: color 0.3s ease;
 }
 
-.resume-box p {
-  max-width: 620px;
-  margin: 0 auto 28px;
+.resume-card:hover h3 {
+  color: var(--cyan);
+}
+
+.resume-card p {
+  max-width: 650px;
+
+  margin: 0 0 28px;
+
   color: var(--text-secondary);
+
+  font-size: 1rem;
   line-height: 1.8;
+}
+
+/* =========================================
+   RESUME BUTTONS
+========================================= */
+
+.resume-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Make buttons align properly */
+
+.resume-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 48px;
+  padding: 13px 24px;
+
+  border-radius: 10px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.resume-actions a:hover {
+  transform: translateY(-4px);
+}
+
+/* Primary button */
+
+.resume-actions .primary-button {
+  border: 1px solid var(--cyan);
+  background: var(--cyan);
+  color: #07101f;
+
+  box-shadow: 0 0 0 rgba(0, 245, 255, 0);
+}
+
+.resume-actions .primary-button:hover {
+  background: #6fffff;
+
+  box-shadow:
+    0 8px 25px rgba(0, 245, 255, 0.2),
+    0 0 20px rgba(0, 245, 255, 0.1);
+}
+
+/* Secondary button */
+
+.resume-actions .secondary-button {
+  border: 1px solid rgba(155, 92, 255, 0.6);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.resume-actions .secondary-button:hover {
+  border-color: var(--purple);
+  background: rgba(155, 92, 255, 0.1);
+
+  box-shadow: 0 8px 25px rgba(155, 92, 255, 0.12);
+}
+
+.resume-actions svg {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   3D ANIMATIONS
+========================================= */
+
+@keyframes resumeCardFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotateX(0.5deg) rotateY(-0.5deg);
+  }
+}
+
+@keyframes resumeIconFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotateY(-8deg) rotateX(3deg);
+  }
+}
+
+@keyframes resumeBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+  .resume-card {
+    gap: 30px;
+    padding: 40px 30px;
+  }
+
+  .resume-icon {
+    width: 105px;
+    height: 125px;
+  }
+}
+
+@media (max-width: 650px) {
+  .resume-card {
+    flex-direction: column;
+
+    text-align: center;
+    padding: 40px 25px;
+  }
+
+  .resume-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resume-card p {
+    font-size: 0.92rem;
+  }
+
+  .resume-actions {
+    justify-content: center;
+  }
+
+  .resume-icon {
+    width: 110px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 420px) {
+  .resume-card {
+    padding: 32px 20px;
+  }
+
+  .resume-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .resume-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .resume-actions a {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-card,
+  .resume-icon,
+  .resume-card::before {
+    animation: none;
+  }
+
+  .resume-card:hover,
+  .resume-card:hover .resume-icon {
+    transform: none;
+  }
+
+  .resume-card::after {
+    display: none;
+  }
 }
