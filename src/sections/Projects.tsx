@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import {
-  ExternalLink,
   FolderCode,
 } from "lucide-react";
 import ecommerce from "../assets/Project/ecommerce.png";

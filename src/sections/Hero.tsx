@@ -4,7 +4,7 @@ import {
   Code2,
   Download,
 } from "lucide-react";
-
+import resume from "../assets/Anup_SB_Resume_SDE.pdf";
 import {
   FaGithub,
   FaLinkedinIn,
@@ -96,7 +96,7 @@ export default function Hero() {
               <FaLinkedinIn size={22} />
             </a>
 
-            <a href="#resume" aria-label="Resume">
+            <a href={resume} aria-label="Resume">
               <Download size={22} />
             </a>
           </div>

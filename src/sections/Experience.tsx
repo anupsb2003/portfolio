@@ -34,10 +34,8 @@ export default function Experience() {
             <h3>React Native Intern</h3>
             <h4>Anugraha Exceed Pvt. Ltd., Bengaluru</h4>
 
-            <ul>
-              <li>
-                Built React Native screens for a production application.
-              </li>
+            <ul className="timeline-description">
+              <li>Built React Native screens for a production application.</li>
               <li>Fixed UI and UX bugs.</li>
               <li>Integrated REST APIs.</li>
               <li>Worked in an Agile development environment.</li>

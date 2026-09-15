@@ -26,7 +26,9 @@ export default function Navbar() {
           <span className="logo-symbol">&gt;_</span>
           <span className="logo-name">ANUP</span>
           <span className="logo-dot">.</span>
-          <span className="logo-name">SB</span>
+          <span className="logo-name">S</span>
+          <span className="logo-dot">.</span>
+          <span className="logo-name">B</span>
         </a>
 
         {/* Desktop and Mobile Navigation */}
